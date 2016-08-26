@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
+    
+    <bean id="triangle" class="org.javabrains.spring.src.Triangle">
+    	<!-- <property name="type" value="Equilateral"></property> -->
+    	<constructor-arg type="int" index="0" value="20"></constructor-arg>
+    	<constructor-arg type="java.lang.String" index="1" value="equilateral"></constructor-arg>
+    </bean>
+    
+    <bean id="triangleval" class="org.javabrains.spring.src.Triangle">
+    	<property name="area" value="20"></property>
+    	<property name="type" value="Equilateral"></property>
+    </bean>
+</beans>

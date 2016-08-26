@@ -1,0 +1,85 @@
+package sorting.RecursiveSort;
+
+public class RecursiveSorts {
+	private int maxSize;
+	private int[] mergeSortArray;
+	
+	
+	public int[] getMergeSortArray() {
+		return mergeSortArray;
+	}
+
+	public void setMergeSortArray(int[] mergeSortArray) {
+		this.mergeSortArray = mergeSortArray;
+	}
+
+	public int getMaxSize() {
+		return maxSize;
+	}
+
+	public void setMaxSize(int maxSize) {
+		this.maxSize = maxSize;
+	}
+
+	public void arrDisplay(long[] arr, int length){
+		System.out.print("Data: ");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i]);
+			System.out.print(" | ");
+		}
+		System.out.println(" ");
+	}
+	
+	public void setMergeSortArray() {
+		mergeSortArray = new int[maxSize];
+		for (int i = 0; i < mergeSortArray.length; i++) {
+			mergeSortArray[i] = (int)(Math.random()*maxSize);
+		}
+	}
+
+	public void mergeSort(int A[], int temp[], int left, int right){
+		int mid;
+		if (right > left) {
+			mid = (right+left)/2;
+			mergeSort(A, temp, left, mid);
+			mergeSort(A, temp, mid+1, right);
+			
+		}
+	}
+	
+	public void merge(int A[], int temp[], int left, int mid, int right) {
+		int i, left_end, size, temp_pos;
+		left_end = mid-1;
+		temp_pos = left;
+		size = right-left+1;
+		
+		while (left<=left_end && mid<=right) {
+			if (A[left]<A[mid]) {
+				temp[temp_pos] = A[left];
+				temp_pos++;
+				left++;
+			} else {
+				temp[temp_pos] = A[mid];
+				temp_pos++;
+				mid++;
+			}
+		}
+		
+		while (left<=left_end) {
+			temp[temp_pos] = A[left];
+			temp_pos++;
+			left++;
+		}
+		
+		while (mid<=right) {
+			temp[temp_pos] = A[mid];
+			temp_pos++;
+			mid++;
+		}
+		
+		for (i = 0; i < size; i++) {
+			A[right] = temp[right];
+			right--;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+package sorting.RecursiveSort;
+
+public class RecursiveSortTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		RecursiveSorts rs = new RecursiveSorts();
+		rs.setMaxSize(50);
+		rs.setMergeSortArray();
+		rs.arrDisplay(rs.getMergeSortArray(), rs.getMergeSortArray().length);
+
+	}
+
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd" >
+    
+	<bean id="zeroPt" class="org.javabrains.spring.src.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="0"></property>
+	</bean>
+    
+	<bean id="point1" class="org.javabrains.spring.src.Point">
+		<qualifier value="triangleRelated"></qualifier>
+		<property name="x" value="10"></property>
+		<property name="y" value="0"></property>
+	</bean>
+    
+	<bean id="point2" class="org.javabrains.spring.src.Point">
+		<property name="x" value="0"></property>
+		<property name="y" value="10"></property>
+	</bean>
+    
+	<bean id="center" class="org.javabrains.spring.src.Point">
+		<property name="x" value="10"></property>
+		<property name="y" value="10"></property>
+	</bean>
+	
+	<bean id="triangle" class="org.javabrains.spring.shape.src.Triangle">
+		<property name="pointA" ref="zeroPt"></property>
+		<!-- <property name="pointB" ref="point1"></property> -->
+		<!-- <property name="pointC" ref="point2"></property> -->
+	</bean>
+	
+	<bean id="circle" class="org.javabrains.spring.shape.src.Circle">
+		<!-- <property name="center" ref="zeroPt"></property> -->
+		<property name="messageSource" ref="messageSource"></property>
+	</bean>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>messages</value>
+				<value>errmessages</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"></bean>
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"></bean> -->
+	<context:annotation-config/>
+	<context:component-scan base-package="org.javabrains,spring.shape.src"/>
+</beans>

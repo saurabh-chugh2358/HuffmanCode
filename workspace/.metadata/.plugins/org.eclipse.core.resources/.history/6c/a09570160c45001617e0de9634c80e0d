@@ -1,0 +1,17 @@
+package sorting.RecursiveSort;
+
+public class RecursiveSortTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		// To test the Merge-Sort...!
+		RecursiveSorts rs = new RecursiveSorts();
+		rs.setMaxSize(50);
+		rs.setMergeSortArray();
+		rs.arrDisplay(rs.getMergeSortArray(), rs.getMergeSortArray().length);
+		rs.mergeSort(rs.getMergeSortArray(), rs.getTempArray(), 0, rs.getMergeSortArray().length);
+		rs.arrDisplay(rs.getMergeSortArray(), rs.getMergeSortArray().length);
+	}
+
+}
